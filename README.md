@@ -35,24 +35,6 @@ Este repositório contém o painel de administração da plataforma **SOS Auto A
 
 ## 📁 Estrutura do Projeto
 
-src/
-├── app/
-│ ├── modules/
-│ │ ├── dashboard/ # Visão geral do sistema
-│ │ ├── users/ # Motoristas
-│ │ ├── partners/ # Mecânicos, Guinchos
-│ │ ├── insurance/ # Seguradoras
-│ │ ├── atendimentos/ # Chamados
-│ │ └── relatorios/ # KPIs, gráficos
-│ ├── core/ # Interceptors, guards, services
-│ ├── shared/ # Componentes comuns
-├── environments/ # Configurações por ambiente
-
-yaml
-Copy
-Edit
-
----
 
 ## 🛠️ Como executar localmente
 
