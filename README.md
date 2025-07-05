@@ -23,13 +23,7 @@ Este repositório contém o painel de administração da plataforma **SOS Auto A
 
 ## 📦 Tecnologias Utilizadas
 
-- Angular 17+
-- TailwindCSS ou SCSS
-- RxJS
-- ngx-charts / Chart.js
-- Angular Router
-- JWT / Supabase Auth
-- SweetAlert2 / Toastr
+...
 
 ---
 
