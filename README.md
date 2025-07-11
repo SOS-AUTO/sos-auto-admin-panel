@@ -41,5 +41,5 @@ ng serve
 
 ```
 🧑 Desenvolvedor
-Isaac Isvaldo Bunga
+Domingos Canhanga
 GitHub
