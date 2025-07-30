@@ -1,45 +1,28 @@
-# SOS Auto Angola – Painel do Administrador 👨‍💼
+# BackOffice-DExpress (Frontend)
 
-Este repositório contém o painel de administração da plataforma **SOS Auto Angola**, permitindo o gerenciamento completo de usuários, parceiros, atendimentos, seguradoras e relatórios da operação.
-
----
-
-## 🚀 Funcionalidades
-
-- Login e autenticação segura
-- Dashboard com KPIs (chamados abertos, atendimentos diários, etc.)
-- Gerenciamento de:
-  - Motoristas
-  - Mecânicos
-  - Guinchos
-  - Seguradoras
-- Visualização e edição de atendimentos
-- Acompanhamento em tempo real dos chamados
-- Configuração de comissões e planos
-- Relatórios com gráficos
-- Sistema de permissões e cargos
+Este é o **frontend do sistema BackOffice-DExpress**, desenvolvido em **React + Vite + TypeScript**, utilizando **ShadCN UI** para a interface.  
+O sistema fornece o painel administrativo para gerenciar operações e integrações do DExpress.
 
 ---
 
-## 📦 Tecnologias Utilizadas
-
-...
+## **Tecnologias utilizadas**
+- [React 18+](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [ShadCN UI](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/) para consumo da API
+- [React Router](https://reactrouter.com/) para navegação
+- Suporte a **tema escuro (dark mode)**
 
 ---
 
-## 📁 Estrutura do Projeto
+## **Pré-requisitos**
+- [Node.js (v18+)](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+
+> **Opcional:** É possível rodar com **Docker** (veja abaixo).
+
+---
 
 
-## 🛠️ Como executar localmente
-
-```bash
-git clone https://github.com/SOS-AUTO/sos-auto-admin-panel.git
-cd sos-auto-admin-panel
-
-npm install
-ng serve
-
-```
-🧑 Desenvolvedor
-Domingos Canhanga
-GitHub
