@@ -1,4 +1,7 @@
 
+import { ChartBarInteractive } from "@/components/chart-bar-interactive"
+import { ChartBarMixed } from "@/components/chart-bar-mixed"
+import { DataTable } from "@/components/data-table"
 import { SectionCards } from "@/components/section-cards"
 
 
@@ -13,13 +16,31 @@ export default function DashboardPage() {
           <SectionCards />
 
           <div className="px-4 lg:px-6 flex-1">
-          { /** graficos */}
-          </div>
-            <div className="px-4 lg:px-6 flex-1">
-          { /** graficos */}
+            <ChartBarInteractive />
           </div>
 
-        
+          <div className="px-4 lg:px-6 flex flex-wrap gap-4">
+            <div className="flex-1 min-w-[300px]">
+              <ChartBarMixed />
+            </div>
+            <div className="flex-[2] min-w-[430px]">
+              <div className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-4 h-[430px] flex flex-col">
+                <div className="flex-1 overflow-y-auto">
+                  <DataTable
+                    className="flex-1 h-full"
+                    columns={[ ]}
+                    data={[]}
+                    page={1}
+                    setPage={() => {}}
+                    totalPages={0}
+                    limit={0}
+                    setLimit={() => {}}
+                    filters={[]}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

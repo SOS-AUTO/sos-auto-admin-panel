@@ -142,7 +142,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader className="flex justify-start items-center px-4 py-4">
         <Link to="/dashboard" className="flex items-center">
-          <img src={logoUrl} alt="DExpress Logo" className="h-10 w-auto" />
+          <img src={logoUrl} alt="SOS Auto Logo" className="h-20 w-auto" />
         </Link>
       </SidebarHeader>
 

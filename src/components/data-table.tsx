@@ -117,7 +117,7 @@ export function DataTable<TData, TValue>({
       {/* Filtros */}
       <div className="flex flex-wrap gap-4 items-center py-4">
         {/* Itens por página */}
-        <Select
+        <Select defaultValue="5"
           value={String(limit)}
           onValueChange={(value) => {
             setLimit(value === "all" ? 0 : parseInt(value))
@@ -128,7 +128,7 @@ export function DataTable<TData, TValue>({
             <SelectValue placeholder="Itens por página" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="5">5</SelectItem>
+            <SelectItem value="5" >5</SelectItem>
             <SelectItem value="10">10</SelectItem>
             <SelectItem value="all">Todos</SelectItem>
           </SelectContent>
