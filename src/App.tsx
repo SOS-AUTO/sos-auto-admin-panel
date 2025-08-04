@@ -7,6 +7,7 @@ import DashboardPage from "./pages/dashboard/DashboardPage"
 import PrivateRoute from "./components/PrivateRoute"
 import LayoutDashboard from "./pages/dashboard/LayoutDashboard"
 import ProfilePage from "./pages/dashboard/profile/ProfilePage"
+import AssistancePage from "./pages/dashboard/assistance/AssistancePage"
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
 
 
             <Route path="dashboard/overview" element={<DashboardPage />} />
+            <Route path="dashboard/atendimentos" element={<AssistancePage />} />
             <Route path="profile" element={<ProfilePage />} />
 
             {/* Página 404 */}
