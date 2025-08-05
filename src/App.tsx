@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { ThemeProvider } from "./components/theme-provider"
 import LoginPage from "./pages/auth/LoginPage"
 import NotFoundPage from "./pages/dashboard/error/404"
-import DashboardPage from "./pages/dashboard/DashboardPage"
+import DashboardPage from "./pages/dashboard/home/DashboardPage"
+import Drivers from "./pages/dashboard/users/Drivers"
 import PrivateRoute from "./components/PrivateRoute"
 import LayoutDashboard from "./pages/dashboard/LayoutDashboard"
 import ProfilePage from "./pages/dashboard/profile/ProfilePage"
@@ -24,6 +25,7 @@ export default function App() {
 
 
             <Route path="dashboard/overview" element={<DashboardPage />} />
+            <Route path="users/drivers" element={<Drivers />} />
             <Route path="profile" element={<ProfilePage />} />
 
             {/* Página 404 */}

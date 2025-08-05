@@ -1,6 +1,11 @@
 "use client"
 import { Calendar } from "@/components/ui/calendar"  // o componente correto
-import { ChevronDownIcon } from "lucide-react"       // ícone separado
+import {
+  Eye,
+  Pencil,
+  Trash2, 
+  ChevronDownIcon
+} from "lucide-react"       // ícone separado
 
 import {
   type ColumnDef,
@@ -23,7 +28,8 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Button } from "./ui/button"
-import React from "react"
+import React, 
+{ useState } from "react"
 import { Input } from "./ui/input"
 import {
   DropdownMenu,
@@ -37,6 +43,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SelectGroup,
 } from "@/components/ui/select"
 
 import {
@@ -44,6 +51,23 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+
+//dialog
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label"
+
+
+import { Textarea } from "@/components/ui/textarea"
+
 
 // Agora com suporte para "date" e reset individual
 interface FilterConfig {
@@ -178,37 +202,37 @@ export function DataTable<TData, TValue>({
             )
           }
         if (filter.type === "date") {
-    return (
-      <div key={idx} className="flex flex-col">
-        
-        <Popover>
-          <PopoverTrigger asChild>
-            <Button
-              variant="outline"
-              className="w-48 justify-between font-normal"
-            >
-              {filter.value ? new Date(filter.value).toLocaleDateString("pt-PT") : "Selecionar data"}
-              <ChevronDownIcon className="ml-2 h-4 w-4" />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-auto overflow-hidden p-0" align="start">
-            <Calendar
-              mode="single"
-              selected={filter.value ? new Date(filter.value) : undefined}
-              captionLayout="dropdown"
-              onSelect={(date) => {
-                const selected = date ? date.toISOString().split("T")[0] : ""
-                filter.onChange(selected)
-                if (filter.column) {
-                  table.getColumn(filter.column)?.setFilterValue(selected)
-                }
-              }}
-            />
-          </PopoverContent>
-        </Popover>
-      </div>
-    )
-  }
+          return (
+            <div key={idx} className="flex flex-col">
+              
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="w-48 justify-between font-normal"
+                  >
+                    {filter.value ? new Date(filter.value).toLocaleDateString("pt-PT") : "Selecionar data"}
+                    <ChevronDownIcon className="ml-2 h-4 w-4" />
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={filter.value ? new Date(filter.value) : undefined}
+                    captionLayout="dropdown"
+                    onSelect={(date) => {
+                      const selected = date ? date.toISOString().split("T")[0] : ""
+                      filter.onChange(selected)
+                      if (filter.column) {
+                        table.getColumn(filter.column)?.setFilterValue(selected)
+                      }
+                    }}
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
+          )
+        }
           return null
         })}
 
@@ -247,6 +271,62 @@ export function DataTable<TData, TValue>({
               ))}
           </DropdownMenuContent>
         </DropdownMenu>
+
+        <Dialog>
+          <form>
+            <DialogTrigger asChild>
+              <Button variant="outline">Cadastrar</Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px] bg-white dark:bg-gray-900">
+              <DialogHeader>
+                <DialogTitle>Cadastrar Motorista</DialogTitle>
+                <DialogDescription>
+                  Cadastre os dados do motorista aqui. Clique em salvar quando terminar de preencher todos os campos
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4">
+                <div className="grid gap-3">
+                  <Label htmlFor="name-1">Nome</Label>
+                  <Input type="text" id="name-1" name="name" defaultValue="José Alberto Mateus" />
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="email-1">Email</Label>
+                  <Input type="email" id="email-1" name="email" defaultValue="exemplo@gmial.com" />
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="image-1">Imagem</Label>
+                  <Input typeof="image" id="picture" type="file" />
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="Document-1">Documento</Label>
+                  <Select>
+                    <SelectTrigger className="w-sm">
+                      <SelectValue placeholder="Seleciona o documento" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white dark:bg-gray-900">
+                      <SelectGroup>
+                        <SelectItem value="idCard">B.I</SelectItem>
+                        <SelectItem value="driver-card">Carta de Condução</SelectItem>
+                        <SelectItem value="other">Outro</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="grid gap-3">
+                  <Label htmlFor="Document-1">Historico</Label>
+                  <Textarea placeholder="No ultimo atendimento" />
+                </div>
+              </div>
+              <DialogFooter>
+                <DialogClose asChild>
+                  <Button variant="outline">Cancelar</Button>
+                </DialogClose>
+                <Button type="submit">Salvar</Button>
+              </DialogFooter>
+            </DialogContent>
+          </form>
+        </Dialog>
+
       </div>
 
       {/* Tabela */}
@@ -260,6 +340,7 @@ export function DataTable<TData, TValue>({
                     {header.isPlaceholder
                       ? null
                       : flexRender(header.column.columnDef.header, header.getContext())}
+                    
                   </TableHead>
                 ))}
               </TableRow>
@@ -274,6 +355,7 @@ export function DataTable<TData, TValue>({
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
+                  
                 </TableRow>
               ))
             ) : (
